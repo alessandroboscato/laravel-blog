@@ -3,8 +3,11 @@ Hello Mr Anderson,
 Would you like the Red Pill or the Blue Pill?
 
 To SSH into server:
+
 `ssh -i "~/.ssh/id_rsa" forge@13.54.83.71`
+
 `cd /home/forge/test.2mm.io`
+
 `php artisan` commands will work here.
 
 composer and npm is already installed and avaliable to re-ran if needed.
@@ -26,5 +29,6 @@ Your Task:
 8. Git commit and push your code.
 9. Create a pull request on github.
 
-If you made it this far. 
-Well done Mr Anderson. Welcome to the Matrix.
+Well done Mr Anderson. 
+
+Welcome to the Matrix.
