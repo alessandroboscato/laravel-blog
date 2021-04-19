@@ -18,7 +18,7 @@ Your database connection should already be set up in table plus.
 
 GitHub UI is installed as well.
 
-Your Task:
+Your Tasks:
 1. Create new github branch called `feature/YOUR-NAME`
 2. Create a `posts` and `comments` table in the database using `php artisan migrate` commands.
 3. Add a foreign key in `comments` table called `post_id`. NOTE: add extra columns like `title` or `description` for brownie points. 
