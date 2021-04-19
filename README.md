@@ -21,7 +21,7 @@ GitHub UI is installed as well.
 Your Tasks:
 1. Create new github branch called `feature/YOUR-NAME`
 2. Create a `posts` and `comments` table in the database using `php artisan migrate` commands.
-3. Add a foreign key in `comments` table called `post_id`. NOTE: add extra columns like `title` or `description` for brownie points. 
+3. Add a foreign key in `comments` table called `post_id`. NOTE: add extra columns like `title` or `description` for trinity points. 
 4. Create an eloquent model for both post and comments and establish a relationship.
 5. Manually add in some dummy data into the `comments` and `posts` tables in tableplus.
 6. Create a route/controller/view to list all the posts.
