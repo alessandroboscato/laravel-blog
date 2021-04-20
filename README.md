@@ -24,8 +24,8 @@ Your Tasks:
 3. Add a foreign key in `comments` table called `post_id`. NOTE: add extra columns like `title` or `description` for trinity points. 
 4. Create an eloquent model for both post and comments and establish a relationship.
 5. Manually add in some dummy data into the `comments` and `posts` tables in tableplus.
-6. Create a route/controller to list all the posts. ie. `{url}/posts`
-7. Create a route/controller to show 1 post and show the attached comments. ie. `{url}/posts/{post_id}`
+6. Create a route and controller to list all the posts. ie. `{url}/posts`
+7. Create a route and use the same controller to show 1 post and show the attached comments. ie. `{url}/posts/{post_id}`
 8. Git commit and push your code.
 9. Create a pull request on github.
 
