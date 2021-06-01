@@ -3,6 +3,7 @@ Hello Mr Anderson,
 Would you like the Red Pill or the Blue Pill?
 
 You're task is to create a "Blog" like website with "Posts" and "Comments"
+
 Post has a 1 to many Relationship with Comments
 
 Your Steps:
