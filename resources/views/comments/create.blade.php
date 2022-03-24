@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <!--Replace with your tailwind.css once created-->
   </head>
-
   
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
@@ -20,53 +19,60 @@
 	<!--Container-->
 	<div class="container w-full md:max-w-3xl mx-auto pt-20">
 
-        <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('comments.store', $id)}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="font-sans">
 						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"></h1>
 			</div>
+			<p class="py-6"></p>
+              
         
         <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
 
-			<!--Title-->
+			<!--Author-->
 			<div class="font-sans">
-						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">Title</h1>
-						<input name="title" type="text" class="w-full" id="title" placeholder="Insert title here" required>
+						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">Author</h1>
+						<input name="author" type="text" class="form-control" id="title" placeholder="Insert author here" required>
 			</div>
-            <div class="font-sans">
-                <label for="content">Description</label>
-                <textarea name="content" class="w-full" id="content" rows="3"></textarea>
-			</div>
-			<div class="font-sans">
-                <label for="description">Content</label>
-                <textarea name="description" class="w-full" id="content" rows="3"></textarea>
+            <!--Email-->
+            <p class="py-6">
+                <label for="email">Email</label>
+                <input name="email" type="text" class="form-control" id="title" placeholder="Insert email here" required>
+            </p>
+			<p class="py-6">
+                <label for="content">Content</label>
+                <textarea name="content" class="form-control" id="content" rows="3" required></textarea>
+            </p>
+
+            <div class="flex w-full items-center font-sans px-4 py-12">
+                
+                <div class="justify-end">
+                    <button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full" type="submit">Submit</button>
+                </div>
             </div>
 
 		</div>
-
-
-        <!--Author-->
-		<div class="flex w-full items-center font-sans px-4 py-12">
-			<div class="flex-1 px-2">
-				<p class="text-base font-bold text-base md:text-xl leading-none mb-2">Author</p>
-				<input name="author" type="text" class="form-control" id="author" placeholder="Insert author here" required>
-			</div>
-			<div class="justify-end">
-				<button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full" type="submit">Submit</button>
-			</div>
-		</div>
+	
     </form>
-		<!--/Author-->
+
+    @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+          @endif
 
 		<!--Divider-->
 		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
 
-
 	</div>
 	<!--/container-->
 
-	@include('partials.footer')
+@include('partials.footer')
 
 	<script>
 		/* Progress bar */

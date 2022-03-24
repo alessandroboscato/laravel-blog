@@ -45,7 +45,6 @@ class PostController extends Controller
           "author" => "required|max:50",
         ]);
 
-
         $newPost = new Post;
         $newPost->title = $data["title"];
         $newPost->description = $data["description"];
@@ -75,9 +74,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        return view('edit', compact('post'));
     }
 
     /**
@@ -87,9 +87,26 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $request->validate([
+            "title" => "required|max:100",
+            "description" => "required|max:255",
+            "content" => "required|max:20000",
+            "author" => "required|max:50",
+          ]);
+
+
+          $newPost = Post::find($id);
+          $newPost->title = $data["title"];
+          $newPost->description = $data["description"];
+          $newPost->content = $data["content"];
+          $newPost->author = $data["author"];
+          $newPost->update();
+
+         return redirect()->route("posts.index");
     }
 
     /**
@@ -98,8 +115,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route("posts.index");
     }
 }

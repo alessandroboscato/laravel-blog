@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,9 @@ Route::get('/', function () {
 });
 
 Route::resource('/posts', PostController::class);
+Route::get('comments/{id}', [CommentController::class, 'create'])->name('comments.create');
+Route::post('comments/{id}', [CommentController::class, 'store'])->name('comments.store');
+
+
 
 
