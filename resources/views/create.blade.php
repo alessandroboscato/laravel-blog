@@ -55,16 +55,40 @@
 	<!--Container-->
 	<div class="container w-full md:max-w-3xl mx-auto pt-20">
 
-        @foreach ($posts as $post)
+        <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <div class="font-sans">
+				<p class="text-base md:text-sm text-green-500 font-bold">&lt; <a href="#" class="text-base md:text-sm text-green-500 font-bold no-underline hover:underline">BACK TO BLOG</a></p>
+						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"></h1>
+						<p class="text-sm md:text-base font-normal text-gray-600">Published </p>
+			</div>
+			<p class="py-6"></p>
+              
+              
+              
+            
+              
+              
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+        
         <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
 
 			<!--Title-->
 			<div class="font-sans">
 				<p class="text-base md:text-sm text-green-500 font-bold">&lt; <a href="#" class="text-base md:text-sm text-green-500 font-bold no-underline hover:underline">BACK TO BLOG</a></p>
-						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl"><a href="{{route('posts.show', $post->id)}}">{{$post->title}}</a></h1>
-						<p class="text-sm md:text-base font-normal text-gray-600">Published {{$post->created_at}}</p>
+						<h1 class="font-bold font-sans break-normal text-gray-900 pt-6 pb-2 text-3xl md:text-4xl">Title</h1>
+						<input name="title" type="text" class="form-control" id="title" placeholder="Insert title here" required>
 			</div>
-			<p class="py-6">{{$post->content}}</p>
+            <p class="py-6">
+                <label for="content">Description</label>
+                <textarea name="content" class="form-control" id="content" rows="3"></textarea>
+            </p>
+			<p class="py-6">
+                <label for="description">Content</label>
+                <textarea name="description" class="form-control" id="content" rows="3"></textarea>
+            </p>
 
 		</div>
 
@@ -75,19 +99,19 @@
 
         <!--Author-->
 		<div class="flex w-full items-center font-sans px-4 py-12">
-			<img class="w-10 h-10 rounded-full mr-4" src="http://i.pravatar.cc/300" alt="Avatar of Author">
 			<div class="flex-1 px-2">
-				<p class="text-base font-bold text-base md:text-xl leading-none mb-2">{{$post->author}}</p>
+				<p class="text-base font-bold text-base md:text-xl leading-none mb-2">Author</p>
+				<input name="author" type="text" class="form-control" id="author" placeholder="Insert author here" required>
 			</div>
 			<div class="justify-end">
-				<button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Comment</button>
+				<button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full" type="submit">Submit</button>
 			</div>
 		</div>
+    </form>
 		<!--/Author-->
 
 		<!--Divider-->
 		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-        @endforeach
 
 		<!--Next & Prev Links-->
 		<div class="font-sans flex justify-between content-center px-4 pb-12">

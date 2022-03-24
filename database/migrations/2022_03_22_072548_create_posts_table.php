@@ -19,8 +19,6 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->longtext('content');
             $table->string('author', 50);
-            $table->json('categories')->nullable();
-            $table->tinyInteger('status');
             $table->timestamps();
         });
     }

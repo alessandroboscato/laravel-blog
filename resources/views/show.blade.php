@@ -55,7 +55,7 @@
 	<!--Container-->
 	<div class="container w-full md:max-w-3xl mx-auto pt-20">
 
-        @foreach ($posts as $post)
+    
         <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
 
 			<!--Title-->
@@ -80,14 +80,15 @@
 				<p class="text-base font-bold text-base md:text-xl leading-none mb-2">{{$post->author}}</p>
 			</div>
 			<div class="justify-end">
-				<button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Comment</button>
+				<a href="{{route('posts.update', $post->id)}}" class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Edit</a>
+				<a href="{{route('posts.destroy', $post->id)}}" class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Delete</a>
 			</div>
 		</div>
 		<!--/Author-->
 
 		<!--Divider-->
 		<hr class="border-b-2 border-gray-400 mb-8 mx-4">
-        @endforeach
+        
 
 		<!--Next & Prev Links-->
 		<div class="font-sans flex justify-between content-center px-4 pb-12">
