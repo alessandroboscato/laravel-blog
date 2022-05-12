@@ -36,10 +36,8 @@ class CommentController extends Controller
         ]);
 
         $newComment = new Comment;
-        $newComment->post_id = $id;
-        $newComment->author = $data["author"];
-        $newComment->email = $data["email"];
-        $newComment->content = $data["content"];
+        $data['post_id'] = $id;
+        $newComment->fill($data);
         $newComment->save();
 
         $posts = Post::all();

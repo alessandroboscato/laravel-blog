@@ -10,6 +10,10 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title', 'description', 'content', 'author'
+    ];
+
     /**
      * Get the comments for the blog post.
      */
